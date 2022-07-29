@@ -53,6 +53,10 @@ import java.util.ArrayList;
 
         }
 
+
+
+
+
         public long insertNote(String noteContent) {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues values = new ContentValues();
