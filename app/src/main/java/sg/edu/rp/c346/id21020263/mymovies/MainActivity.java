@@ -1,5 +1,6 @@
 package sg.edu.rp.c346.id21020263.mymovies;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
