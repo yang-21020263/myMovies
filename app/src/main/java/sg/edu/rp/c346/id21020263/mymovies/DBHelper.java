@@ -125,22 +125,13 @@ import java.util.ArrayList;
                 do {
                     int id = cursor.getInt(0);
                     String noteContent = cursor.getString(1);
-                    Note note = new Note(id, noteContent);
-                    notes.add(note);
+                    Movie movie = new Movie(id, noteContent);
+                    notes.add(movie);
                 } while (cursor.moveToNext());
             }
             cursor.close();
             db.close();
             return notes;
         }
-
-
-
-
-
-
-
     }
-
-
 }
