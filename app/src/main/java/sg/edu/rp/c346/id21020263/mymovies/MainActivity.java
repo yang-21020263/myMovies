@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etTitle, etGenre, etYear;
     Button btnInsert, btnList;
     Spinner ratings;
-    ArrayList<Movie> contactlist;
+    ArrayList<Movie> movieList;
 
 
     @Override

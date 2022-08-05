@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">myMovies</string>
-    <string name="button" >Show All PG-13 Movies</string>
-    <string name="title" >Movie title:</string>
-    <string name="genre" >Genre:</string>
-    <string name="year" >Year</string>
-    <string name="rating" >Show All PG-13 Movies</string>
+    <string name="button">Show All PG-13 Movies</string>
+    <string name="title">Movie title:</string>
+    <string name="genre">Genre:</string>
+    <string name="year">Year</string>
+    <string name="rating">Show All PG-13 Movies</string>
 
 
 </resources>
