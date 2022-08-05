@@ -9,8 +9,6 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-public class DBHelper extends SQLiteOpenHelper{
-
 
 import java.util.ArrayList;
 
@@ -67,8 +65,8 @@ import java.util.ArrayList;
             return result;
         }
 
-        public ArrayList<Note> getAllNotes() {
-            ArrayList<Note> notes = new ArrayList<Note>();
+        public ArrayList<Movie> MovieList() {
+            ArrayList<Movie> notes = new ArrayList<Movie>();
 
             SQLiteDatabase db = this.getReadableDatabase();
 
@@ -80,7 +78,7 @@ import java.util.ArrayList;
                 do {
                     int id = cursor.getInt(0);
                     String noteContent = cursor.getString(1);
-                    Note note = new Note(id, noteContent);
+                    Movie note = new Movie(id,);
                     notes.add(note);
                 } while (cursor.moveToNext());
             }
@@ -89,10 +87,10 @@ import java.util.ArrayList;
             return notes;
         }
 
-        public int updateNote(Note data){
+        public int updateNote(Movie data){
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues values = new ContentValues();
-            values.put(COLUMN_NOTE_CONTENT, data.getNoteContent());
+            values.put(COLUMN_NOTE_CONTENT, data.getId());
             String condition = COLUMN_ID + "= ?";
             String[] args = {String.valueOf(data.getId())};
             int result = db.update(TABLE_NOTE, values, condition, args);
@@ -111,8 +109,8 @@ import java.util.ArrayList;
         }
 
 
-        public ArrayList<Note> getAllNotes(String keyword) {
-            ArrayList<Note> notes = new ArrayList<Note>();
+        public ArrayList<Movie> getAllNotes(String keyword) {
+            ArrayList<Movie> notes = new ArrayList<Movie>();
 
             SQLiteDatabase db = this.getReadableDatabase();
             String[] columns= {COLUMN_ID, COLUMN_NOTE_CONTENT};
@@ -125,7 +123,7 @@ import java.util.ArrayList;
                 do {
                     int id = cursor.getInt(0);
                     String noteContent = cursor.getString(1);
-                    Movie movie = new Movie(id, noteContent);
+                    Movie movie = new Movie(id, );
                     notes.add(movie);
                 } while (cursor.moveToNext());
             }

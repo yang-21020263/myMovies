@@ -9,9 +9,9 @@ public class CustomAdapter extends ArrayAdapter {
 
     Context parent_content;
     int layout_id;
-    ArrayList<MovieList> contactlist;
+    ArrayList<Movie> contactlist;
 
-    public CustomAdapter(Context context, int resource,  ArrayList<MovieList> objects) {
+    public CustomAdapter(Context context, int resource,  ArrayList<Movie> objects) {
         super(context, resource, objects);
         parent_content = context;
         layout_id = resource;

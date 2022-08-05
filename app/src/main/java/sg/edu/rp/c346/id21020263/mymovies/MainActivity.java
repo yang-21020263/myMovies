@@ -9,11 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText etTitle, etGenre, etYear;
     Button btnInsert, btnList;
     Spinner ratings;
+    ArrayList<Movie> contactlist;
 
 
     @Override
