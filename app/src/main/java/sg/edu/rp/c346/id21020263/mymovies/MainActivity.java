@@ -3,11 +3,13 @@ package sg.edu.rp.c346.id21020263.mymovies;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -39,6 +41,20 @@ public class MainActivity extends AppCompatActivity {
                 String genre = etGenre.getText().toString();
                 String year = etYear.getText().toString();
                 String rating = ratings.getSelectedItem().toString();
+
+                DBHelper dbh = new DBHelper(MainActivity.this);
+                long inserted_id = dbh.insertAll(title, genre, year, rating);
+                if (inserted_id != -1) {
+                    Toast.makeText(MainActivity.this, "Insert Successful", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btnList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, ListActivity.class);
+                startActivity(i);
             }
         });
     }
