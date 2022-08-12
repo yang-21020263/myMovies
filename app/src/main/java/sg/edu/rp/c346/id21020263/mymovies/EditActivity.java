@@ -80,7 +80,7 @@ public class EditActivity extends AppCompatActivity {
                         dbh.close();
                     }
                 });
-                myBuilder.setPositiveButton("D", new DialogInterface.OnClickListener() {
+                myBuilder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dbh.updateMovie(movie);
@@ -107,7 +107,7 @@ public class EditActivity extends AppCompatActivity {
                         dbh.close();
                     }
                 });
-                myBuilder.setPositiveButton("D", new DialogInterface.OnClickListener() {
+                myBuilder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dbh.deleteMovie(movie.getId());
