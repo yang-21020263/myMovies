@@ -1,7 +1,9 @@
 package sg.edu.rp.c346.id21020263.mymovies;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -37,6 +39,8 @@ public class EditActivity extends AppCompatActivity {
         etTitle.setText(movie.getTitle());
         etGenre.setText(movie.getGenre());
         etYear.setText(movie.getYear());
+
+
         int position = 0;
         if (movie.getRating() == "G") {
             position = 0;
@@ -51,6 +55,8 @@ public class EditActivity extends AppCompatActivity {
         } else if (movie.getRating() == "R21") {
             position = 5;
         }
+
+
         editRating.setSelection(position);
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
@@ -61,8 +67,26 @@ public class EditActivity extends AppCompatActivity {
                 movie.setGenre(etGenre.getText().toString());
                 movie.setYear(etYear.getText().toString());
                 movie.setRating(editRating.getSelectedItem().toString());
-                dbh.updateMovie(movie);
-                dbh.close();
+
+
+                AlertDialog.Builder myBuilder = new AlertDialog.Builder(EditActivity.this);
+
+                myBuilder.setTitle("Danger");
+                myBuilder.setMessage("Select one of the Buttons below.");
+                myBuilder.setCancelable(false);
+                myBuilder.setNegativeButton("", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dbh.close();
+                    }
+                });
+                myBuilder.setPositiveButton("D", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dbh.updateMovie(movie);
+                        dbh.close();
+                    }
+                });
             }
         });
 
@@ -71,6 +95,25 @@ public class EditActivity extends AppCompatActivity {
             public void onClick(View v) {
                 DBHelper dbh = new DBHelper(EditActivity.this);
                 dbh.deleteMovie(movie.getId());
+
+                AlertDialog.Builder myBuilder = new AlertDialog.Builder(EditActivity.this);
+
+                myBuilder.setTitle("Danger");
+                myBuilder.setMessage("Select one of the Buttons below.");
+                myBuilder.setCancelable(false);
+                myBuilder.setNegativeButton("", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dbh.close();
+                    }
+                });
+                myBuilder.setPositiveButton("D", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dbh.deleteMovie(movie.getId());
+                        dbh.close();
+                    }
+                });
             }
         });
 
