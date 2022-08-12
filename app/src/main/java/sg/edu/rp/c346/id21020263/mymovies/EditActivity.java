@@ -42,17 +42,17 @@ public class EditActivity extends AppCompatActivity {
 
 
         int position = 0;
-        if (movie.getRating() == "G") {
+        if (movie.getRating().equals("G")) {
             position = 0;
-        } else if (movie.getRating() == "PG") {
+        } else if (movie.getRating().equals("PG")) {
             position = 1;
-        } else if (movie.getRating() == "PG13") {
+        } else if (movie.getRating().equals("PG13")) {
             position = 2;
-        } else if (movie.getRating() == "NC16") {
+        } else if (movie.getRating().equals("NC16")) {
             position = 3;
-        } else if (movie.getRating() == "M18") {
+        } else if (movie.getRating().equals("M18")) {
             position = 4;
-        } else if (movie.getRating() == "R21") {
+        } else if (movie.getRating().equals("R21")) {
             position = 5;
         }
 
